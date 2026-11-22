@@ -2,7 +2,7 @@
 TIKO RAVINTOLA
 OHJELMAKOODI
 */
-
+// Ravintolan ja tuotteiden luonti
 const Ravintola = function () {
   this.alkuruoat = [
     { nimi: 'Tomaattikeitto', hinta: 5 },
@@ -28,9 +28,9 @@ const Ravintola = function () {
     { nimi: 'Maito', hinta: 1 },
     { nimi: 'Mehu', hinta: 2 },
   ];
-  this.paikkojenMaara = 15;
-  this.varauksenMaara = null; // TÃ¤hÃ¤n muuttujaan varauksien lukumÃ¤Ã¤rÃ¤
-  this.paikat; // TÃ¤hÃ¤n muuttujaan paikkojen taulukko
+  this.paikkojenMaara = 15; //Ravintolan paikkojen määrä
+  this.varauksenMaara = null; // Tähän muuttujaan varauksien lukumäärä
+  this.paikat; // Tähän muuttujaan paikkojen taulukko
 };
 
 /**
@@ -42,11 +42,11 @@ function generoiBoolean() {
 }
 
 /**
- * Jos 'asiakkaidenMaara' on pienempi tai yhtÃ¤suuri kuin 'paikkojenMaara', luo taulukon 'tilaukset'
- * johon tallennetaan yksittÃ¤isen asiakkaan tilaus. tilaaAteria-funktiolle annetaan satunnaiset boolean arvot
- * argumentteina.
- *
- * Palauttaa pÃ¤Ã¤tteeksi 'tilaukset' taulukon.
+ * Tarkistaa tarkistaAsiakasSyote-funktion avulla, ettÃ¤ 'asiakkaidenMaara' on validi syöte.
+ * Tämän jälkeen tarkistetaan varaaPaikat-funktion avulla, onko ravintolassa tarpeeksi paikkoja varattavaksi.
+ * Jos paikkoja on tarpeeksi, luo taulukon 'tilaukset' johon tallennetaan yksittäisen asiakkaan tilaukset.
+ * Jokaiselle asiakkaalle kutsutaan tilaaAteria-funktiota, jolle annetaan satunnaiset boolean-arvot argumentteina.
+ * Palauttaa lopuksi 'tilaukset' taulukon.
  * @param {number} asiakkaidenMaara
  * @return {object} object array
  */
@@ -83,6 +83,7 @@ Ravintola.prototype.syoRavintolassa = function (asiakkaidenMaara) {
  * Kirjoittaa konsoliin tulosteen tilanteesta, ja palauttaa onnistumisen boolean arvona.
  *
  * Jos 'asiakkaidenMaara' ei ole numero, heittÃ¤Ã¤ TypeErrorin.
+ * alkuperäinen tarkistaPaikkojenMaara-funktio on muutettu tarkistaAsiakasSyote-funktioksi, joka palauttaa boolean-arvon syötteen oikeellisuudesta.
  * @param {number} asiakkaidenMaara
  * @return {boolean} Onnistuminen
  */
